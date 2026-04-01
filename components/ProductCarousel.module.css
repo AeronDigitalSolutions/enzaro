@@ -1,0 +1,65 @@
+.carouselSection {
+  padding: 6rem 0;
+  background-color: var(--color-black);
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--color-white);
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) #222;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+.cardWrapper {
+  flex: 0 0 calc(25% - 1.5rem);
+  min-width: 260px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1024px) {
+  .cardWrapper {
+    flex: 0 0 calc(33.333% - 1.33rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardWrapper {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .cardWrapper {
+    flex: 0 0 80%;
+  }
+}

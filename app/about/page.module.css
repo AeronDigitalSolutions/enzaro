@@ -1,0 +1,386 @@
+.page {
+  --paper: #050505;
+  --paper-soft: #0b0b0b;
+  --ink: #f4f1ec;
+  --ink-soft: #b0a79d;
+  --brass: #d4af37;
+  --rose: #12100e;
+  --card-border: #2a2723;
+  background:
+    radial-gradient(90% 55% at 100% 0, rgba(212, 175, 55, 0.12) 0%, transparent 65%),
+    linear-gradient(var(--paper), var(--paper));
+  color: var(--ink);
+}
+
+.heroSection {
+  padding: 5rem 0 4.5rem;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.heroContent {
+  max-width: 720px;
+}
+
+.overline {
+  margin: 0 0 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.74rem;
+  color: #8f8374;
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 0.95;
+  color: #f6f4ef;
+}
+
+.heroTitle span {
+  color: var(--brass);
+  font-style: italic;
+}
+
+.heroLead {
+  margin: 1.5rem 0 2.8rem;
+  font-size: 1.35rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 680px;
+}
+
+.breadcrumb {
+  margin: 0;
+  color: #867765;
+  letter-spacing: 3px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.heroVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.95;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  box-shadow: 0 30px 45px rgba(0, 0, 0, 0.4);
+  border: 1px solid #1e1a16;
+}
+
+.imageCover {
+  object-fit: cover;
+}
+
+.signatureSection {
+  padding: 0 0 5rem;
+}
+
+.signatureGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.7rem;
+}
+
+.signatureMainImage {
+  position: relative;
+  min-height: 560px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(23, 13, 7, 0.1);
+}
+
+.signatureContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.75);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 1.1rem 1.5rem 2.2rem;
+}
+
+.signatureTopRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-bottom: 1.4rem;
+}
+
+.signatureMiniImage {
+  position: relative;
+  aspect-ratio: 1.35;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: clamp(2rem, 4.8vw, 4rem);
+  line-height: 1.1;
+  color: #f5f2ec;
+}
+
+.sectionTitle span {
+  font-style: italic;
+  color: #ead8bf;
+}
+
+.twoColText {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+
+.twoColText p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  font-size: 1.08rem;
+}
+
+.ghostBtn {
+  margin-top: 1.6rem;
+  width: fit-content;
+  border: 1px solid #6f5838;
+  background: transparent;
+  color: #f0ddc2;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  padding: 0.85rem 1.35rem;
+  transition: all 0.25s ease;
+}
+
+.ghostBtn:hover {
+  background: #d4af37;
+  color: #111;
+}
+
+.whySection {
+  padding: 2rem 0 5.5rem;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: 0.96fr 1.04fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.whyContent {
+  padding-right: 0.8rem;
+}
+
+.copy {
+  margin: 1.4rem 0 2rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  font-size: 1.18rem;
+  max-width: 560px;
+}
+
+.statCard {
+  background: var(--rose);
+  border: 1px solid #2f2a24;
+  border-radius: 1rem;
+  padding: 1.3rem;
+  max-width: 520px;
+}
+
+.avatarGroup {
+  display: flex;
+  margin-bottom: 0.8rem;
+}
+
+.avatarGroup span {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  margin-right: -8px;
+  background: #1f1a15;
+  border: 1px solid #4a3f31;
+  color: #d8b982;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.statCard h3 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: #f0ece7;
+}
+
+.statLabel {
+  margin: 0.2rem 0 0.9rem !important;
+  font-size: 1rem !important;
+  color: #bfa57f !important;
+}
+
+.statCard p {
+  margin: 0;
+  color: #b3a9a0;
+  line-height: 1.7;
+}
+
+.tilesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.tile {
+  position: relative;
+  min-height: 290px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.tileOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 6, 6, 0.92), rgba(8, 8, 8, 0.3));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.2rem;
+}
+
+.tileOverlay h3 {
+  margin: 0;
+  color: #efd6a9;
+  font-size: 2.05rem;
+  line-height: 1.05;
+}
+
+.tileOverlay p {
+  margin: 0.6rem 0 0;
+  color: #d8cec2;
+  line-height: 1.5;
+  font-size: 1.04rem;
+}
+
+.historySection {
+  padding: 1rem 0 6rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.centerTitle {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 2.2rem;
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.timelineCard {
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  background: var(--paper-soft);
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: baseline;
+  margin-bottom: 0.9rem;
+}
+
+.timelineHeader h3 {
+  margin: 0;
+  font-size: 2.15rem;
+  line-height: 1.1;
+  color: #f2ede7;
+}
+
+.timelineHeader span {
+  color: #8f7a62;
+  font-size: 3.4rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.timelineCard p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  min-height: 106px;
+}
+
+.timelineImage {
+  margin-top: 1rem;
+  position: relative;
+  aspect-ratio: 1.4;
+  border-radius: 0.7rem;
+  overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+  .heroGrid,
+  .signatureGrid,
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroLead {
+    font-size: 1.15rem;
+  }
+
+  .signatureMainImage {
+    min-height: 440px;
+  }
+
+  .timelineGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .signatureSection,
+  .whySection,
+  .historySection {
+    padding-bottom: 4rem;
+  }
+
+  .twoColText,
+  .tilesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    min-height: 250px;
+  }
+
+  .timelineHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timelineHeader span {
+    font-size: 2.4rem;
+  }
+}
