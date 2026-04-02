@@ -15,11 +15,16 @@ export default function Footer() {
         <div className={styles.linksCol}>
           <h3>Shop</h3>
           <Link href="/shop" className={styles.link}>All Perfumes</Link>
+          <Link href="/shop?category=him" className={styles.link}>For Him</Link>
+          <Link href="/shop?category=her" className={styles.link}>For Her</Link>
+          <Link href="/cart" className={styles.link}>Cart</Link>
+          <Link href="/checkout" className={styles.link}>Checkout</Link>
           <Link href="/about" className={styles.link}>Our Story</Link>
         </div>
 
         <div className={styles.linksCol}>
           <h3>Support</h3>
+          <Link href="/login" className={styles.link}>Login</Link>
           <Link href="/contact" className={styles.link}>Contact Us</Link>
           <Link href="/privacy-policy" className={styles.link}>Privacy Policy</Link>
           <Link href="/terms" className={styles.link}>Terms & Conditions</Link>

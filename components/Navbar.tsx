@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCart } from "@/components/providers/CartProvider";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { itemCount } = useCart();
 
   useEffect(() => {
     setMenuOpen(false);
@@ -43,12 +45,13 @@ export default function Navbar() {
           </div>
 
           <div className={styles.navIcons}>
-            <button className={styles.iconBtn} aria-label="Login">
+            <Link href="/login" className={styles.iconBtn} aria-label="Login">
               Login
-            </button>
-            <button className={styles.iconBtn} aria-label="Cart">
+            </Link>
+            <Link href="/cart" className={styles.iconBtn} aria-label="Cart">
               Cart
-            </button>
+              {itemCount > 0 ? <span className={styles.countBadge}>{itemCount}</span> : null}
+            </Link>
           </div>
 
           <button
@@ -73,8 +76,12 @@ export default function Navbar() {
           <Link href="/contact" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>
             Contact
           </Link>
-          <button className={styles.mobileActionBtn}>Login</button>
-          <button className={styles.mobileActionBtn}>Cart</button>
+          <Link href="/login" className={styles.mobileActionBtn} onClick={() => setMenuOpen(false)}>
+            Login
+          </Link>
+          <Link href="/cart" className={styles.mobileActionBtn} onClick={() => setMenuOpen(false)}>
+            Cart {itemCount > 0 ? `(${itemCount})` : ""}
+          </Link>
         </div>
       </nav>
 

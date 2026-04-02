@@ -44,9 +44,15 @@ function getFallbackProducts() {
 export const ensureProductsSeeded = cache(async () => {
   if (!isMongoConfigured) return;
   await connectToDatabase();
-  const count = await ProductModel.countDocuments();
-  if (count > 0) return;
-  await ProductModel.insertMany(defaultProducts);
+  await ProductModel.bulkWrite(
+    defaultProducts.map((product) => ({
+      updateOne: {
+        filter: { slug: product.slug },
+        update: { $set: product },
+        upsert: true,
+      },
+    }))
+  );
 });
 
 export async function getAllProducts() {

@@ -111,6 +111,8 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
             </div>
 
             <ProductInteractivePanel
+              slug={product.slug}
+              image={product.image}
               name={product.name}
               subtitle={product.subtitle}
               variants={variants}

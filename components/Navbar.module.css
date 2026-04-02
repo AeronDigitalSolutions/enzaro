@@ -50,15 +50,32 @@
 
 .iconBtn {
   background: none;
-  border: none;
   color: var(--color-white);
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 1px;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .iconBtn:hover {
   color: var(--color-gold);
+}
+
+.countBadge {
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: #111;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
 }
 
 .menuBtn {
@@ -158,6 +175,9 @@
   }
 
   .mobileActionBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid #3a2f1d;
     background: #15120d;
     color: var(--color-gold);

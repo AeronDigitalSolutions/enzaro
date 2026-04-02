@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useCart } from "@/components/providers/CartProvider";
 import styles from "./page.module.css";
 
 type Variant = {
@@ -10,6 +11,8 @@ type Variant = {
 };
 
 type ProductInteractivePanelProps = {
+  slug: string;
+  image: string;
   name: string;
   subtitle: string;
   variants: Variant[];
@@ -19,6 +22,8 @@ type ProductInteractivePanelProps = {
 };
 
 export default function ProductInteractivePanel({
+  slug,
+  image,
   name,
   subtitle,
   variants,
@@ -26,12 +31,14 @@ export default function ProductInteractivePanel({
   tags,
   couponText,
 }: ProductInteractivePanelProps) {
+  const { addItem } = useCart();
   const initialVariant = useMemo(
     () => variants.find((variant) => variant.sizeMl === 50) || variants[0],
     [variants]
   );
   const [selectedVariant, setSelectedVariant] = useState<Variant>(initialVariant);
   const [quantity, setQuantity] = useState(1);
+  const [addedText, setAddedText] = useState("");
 
   const formattedPrice = new Intl.NumberFormat("en-IN").format(selectedVariant.price);
   const formattedMrp = new Intl.NumberFormat("en-IN").format(selectedVariant.mrp);
@@ -106,10 +113,26 @@ export default function ProductInteractivePanel({
             +
           </button>
         </div>
-        <button className="btn-primary" type="button">
+        <button
+          className="btn-primary"
+          type="button"
+          onClick={() => {
+            addItem({
+              slug,
+              name,
+              image,
+              sizeMl: selectedVariant.sizeMl,
+              unitPrice: selectedVariant.price,
+              quantity,
+            });
+            setAddedText("Added to cart");
+            window.setTimeout(() => setAddedText(""), 1500);
+          }}
+        >
           Add to Cart - ₹{totalPrice}
         </button>
       </div>
+      {addedText ? <p className={styles.addedText}>{addedText}</p> : null}
     </>
   );
 }

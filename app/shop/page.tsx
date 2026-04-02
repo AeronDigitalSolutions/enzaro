@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import ProductCard from "@/components/ProductCard";
+import { Suspense } from "react";
 import { getAllProducts } from "@/lib/services/products";
+import ShopCatalog from "./ShopCatalog";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -15,12 +16,9 @@ export default async function Shop() {
         <h1 className={styles.title}>Our Collection</h1>
         <p className={styles.subtitle}>Discover the perfect fragrance for every occasion.</p>
       </div>
-
-      <div className={`container ${styles.productGrid}`}>
-        {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </div>
+      <Suspense fallback={<div className={`container ${styles.loadingState}`}>Loading products...</div>}>
+        <ShopCatalog products={products} />
+      </Suspense>
     </div>
   );
 }
