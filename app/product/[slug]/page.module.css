@@ -579,7 +579,7 @@
   }
 
   .detailsColumn {
-    padding-bottom: calc(5.6rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(8.7rem + env(safe-area-inset-bottom));
   }
 
   .mediaSticky {
@@ -611,8 +611,8 @@
     right: 0;
     bottom: 0;
     z-index: 50;
-    grid-template-columns: 104px minmax(0, 1fr);
-    gap: 0.65rem;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
     padding: 0.75rem 0.85rem calc(0.75rem + env(safe-area-inset-bottom));
     background: rgba(7, 7, 7, 0.96);
     backdrop-filter: blur(10px);
