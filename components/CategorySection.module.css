@@ -49,7 +49,26 @@
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: 1fr;
-    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    height: auto;
+    padding: 0 5% 1.2rem;
+  }
+
+  .categoryCard {
+    aspect-ratio: 1 / 1;
+    border-radius: 0.8rem;
+  }
+
+  .title {
+    font-size: 1.35rem;
+    margin-bottom: 0.9rem;
+    text-align: center;
+  }
+
+  .overlay :global(.btn-outline) {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
   }
 }

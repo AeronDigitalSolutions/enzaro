@@ -148,6 +148,40 @@
   gap: 0.8rem;
 }
 
+.variantRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.variantBtn {
+  border: 1px solid #2f2f2f;
+  background: #090909;
+  color: #d9d3cb;
+  border-radius: 0.65rem;
+  padding: 0.7rem 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.variantBtn span {
+  font-size: 0.86rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.variantBtn small {
+  font-size: 0.72rem;
+  color: #9f9487;
+}
+
+.variantBtnActive {
+  border-color: #8a6b2d;
+  background: rgba(212, 175, 55, 0.08);
+}
+
 .price {
   font-size: 2rem;
   color: var(--color-gold);
@@ -531,7 +565,7 @@
   }
 
   .notesGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .testimonialGrid {
@@ -542,6 +576,10 @@
 @media (max-width: 768px) {
   .productContainer {
     padding-top: 1.5rem;
+  }
+
+  .detailsColumn {
+    padding-bottom: calc(5.6rem + env(safe-area-inset-bottom));
   }
 
   .mediaSticky {
@@ -568,7 +606,55 @@
   }
 
   .purchaseRow {
-    grid-template-columns: 1fr;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 0.65rem;
+    padding: 0.75rem 0.85rem calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgba(7, 7, 7, 0.96);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #232323;
+  }
+
+  .purchaseRow :global(.btn-primary) {
+    min-height: 50px;
+  }
+
+  .qtyControl {
+    min-height: 50px;
+  }
+
+  .variantRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .variantBtn {
+    padding: 0.55rem 0.3rem;
+  }
+
+  .variantBtn span {
+    font-size: 0.8rem;
+  }
+
+  .variantBtn small {
+    font-size: 0.68rem;
+  }
+
+  .notesGrid {
+    display: flex;
+    gap: 0.65rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: thin;
+  }
+
+  .noteCard {
+    min-width: 150px;
+    flex: 0 0 150px;
   }
 
   .infoGrid {

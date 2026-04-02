@@ -10,6 +10,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ slug, name, price, image }: ProductCardProps) {
+  const formattedPrice = new Intl.NumberFormat("en-IN").format(price);
+
   return (
     <Link href={`/product/${slug}`} className={styles.card}>
       <div className={styles.imageContainer}>
@@ -20,7 +22,8 @@ export default function ProductCard({ slug, name, price, image }: ProductCardPro
       </div>
       <div className={styles.info}>
         <h3 className={styles.name}>{name}</h3>
-        <p className={styles.price}>${price.toFixed(2)}</p>
+        <p className={styles.price}>₹{formattedPrice}</p>
+        <p className={styles.unit}>50ML</p>
       </div>
     </Link>
   );

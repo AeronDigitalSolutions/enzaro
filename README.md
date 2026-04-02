@@ -1,6 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## ENZARO Storefront
+
+This is a Next.js 16 app-router storefront with a MongoDB-backed dynamic backend.
+
+### Backend Features
+
+- Product catalog stored in MongoDB
+- Automatic seed on first run (if DB is empty)
+- Dynamic Home, Shop, and Product pages
+- Contact form with API submission and MongoDB persistence
+- API routes:
+  - `GET /api/products`
+  - `GET /api/products/[slug]`
+  - `POST /api/contact`
 
 ## Getting Started
+
+1. Copy env values:
+
+```bash
+cp .env.example .env.local
+```
+
+2. Set `MONGODB_URI` and optionally `MONGODB_DB`.
+
+3. Install and run:
+
+```bash
+npm install
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000)
+
+### MongoDB Atlas Notes
+
+- Use a dedicated DB user/password.
+- Keep credentials in `.env.local` only.
+- Whitelist your app/server IP in Atlas Network Access.
+
+---
+
+This project was originally bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Legacy Quick Start
 
 First, run the development server:
 

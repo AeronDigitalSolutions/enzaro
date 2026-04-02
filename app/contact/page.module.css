@@ -152,6 +152,21 @@
   min-width: 220px;
 }
 
+.successMessage,
+.errorMessage {
+  margin: 0;
+  font-size: 0.9rem;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.successMessage {
+  color: #7ee08c;
+}
+
+.errorMessage {
+  color: #f08d8d;
+}
+
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: 1fr;

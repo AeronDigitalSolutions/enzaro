@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -28,12 +29,12 @@ export default function Contact() {
             <div className={styles.infoList}>
               <div className={styles.infoCard}>
                 <h3>Email</h3>
-                <a href="mailto:support@enzaro.com">support@enzaro.com</a>
+                <a href="mailto:aminternational97@gmail.com">aminternational97@gmail.com</a>
               </div>
 
               <div className={styles.infoCard}>
                 <h3>Phone</h3>
-                <a href="tel:+919999999999">+91 99999 99999</a>
+                <a href="tel:+917042703031">+91 70427 03031</a>
               </div>
 
               <div className={styles.infoCard}>
@@ -50,51 +51,7 @@ export default function Contact() {
 
           <div className={styles.formPanel}>
             <h2>Send us a message</h2>
-            <form className={styles.form}>
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label htmlFor="name">Full Name</label>
-                  <input id="name" name="name" type="text" placeholder="Your full name" required />
-                </div>
-                <div className={styles.field}>
-                  <label htmlFor="email">Email Address</label>
-                  <input id="email" name="email" type="email" placeholder="you@example.com" required />
-                </div>
-              </div>
-
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label htmlFor="phone">Phone Number</label>
-                  <input id="phone" name="phone" type="tel" placeholder="+91" />
-                </div>
-                <div className={styles.field}>
-                  <label htmlFor="topic">Inquiry Type</label>
-                  <select id="topic" name="topic" defaultValue="">
-                    <option value="" disabled>
-                      Select topic
-                    </option>
-                    <option value="order">Order Support</option>
-                    <option value="exchange">Exchange / Return</option>
-                    <option value="product">Product Recommendation</option>
-                    <option value="business">Business Inquiry</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="orderId">Order ID (Optional)</label>
-                <input id="orderId" name="orderId" type="text" placeholder="e.g. ENZ-12345" />
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="message">Message</label>
-                <textarea id="message" name="message" rows={6} placeholder="Tell us how we can help..." required />
-              </div>
-
-              <button type="submit" className="btn-primary">
-                Submit Inquiry
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </section>
       </div>

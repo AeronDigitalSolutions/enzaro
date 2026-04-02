@@ -51,4 +51,13 @@
   color: var(--color-gold);
   font-size: 1rem;
   letter-spacing: 1px;
+  margin: 0;
+}
+
+.unit {
+  margin: 0.35rem 0 0;
+  color: #8f8f8f;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }

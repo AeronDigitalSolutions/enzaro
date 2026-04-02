@@ -6,8 +6,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
         <div className={styles.brandCol}>
-          <div className={styles.logo}>
-            <img src="/images/logos/logo.png" alt="ENZARO" style={{ height: '45px', objectFit: 'contain', marginBottom: '0.5rem' }} />
+          <div className={styles.logoWrap}>
+            <img src="/images/logos/logo.png" alt="ENZARO" className={styles.logoImage} />
           </div>
           <p className={styles.tagline}>The essence of luxury and sophistication.</p>
         </div>
@@ -28,7 +28,11 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.bottomBar}>
-        <p>&copy; {new Date().getFullYear()} ENZARO. All rights reserved.</p>
+        <div className="container">
+          <p>
+            Copyright © 2026 ENZARO | Designed by <span className={styles.designer}>WE PUBLICISE</span>
+          </p>
+        </div>
       </div>
     </footer>
   );

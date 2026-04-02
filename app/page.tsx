@@ -4,6 +4,7 @@ import CategorySection from "@/components/CategorySection";
 import OfferSlider from "@/components/OfferSlider";
 import ProductCarousel from "@/components/ProductCarousel";
 import FAQ from "@/components/FAQ";
+import { getHomeCollections } from "@/lib/services/products";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -20,21 +21,8 @@ const offerBanners2 = [
   { id: 2, image: "https://images.unsplash.com/photo-1616949755610-8b9aaf89d094?q=80&w=2000&auto=format&fit=crop", alt: "Join ENZARO Exclusives" }
 ];
 
-const bestSellers = [
-  { id: "1", slug: "savage-elixir", name: "Savage Elixir", price: 185, image: "/images/products/savage-elixir.jpeg" },
-  { id: "2", slug: "ocean-water", name: "Ocean Water", price: 210, image: "/images/products/ocean-water.jpeg" },
-  { id: "3", slug: "vikings", name: "Vikings", price: 165, image: "/images/products/vikings.jpeg" },
-  { id: "5", slug: "7-cr", name: "7 CR", price: 195, image: "/images/products/7-cr.jpeg" },
-];
-
-const newArrivals = [
-  { id: "4", slug: "chrome", name: "Chrome", price: 150, image: "/images/products/chrome.jpeg" },
-  { id: "6", slug: "million-and-love", name: "Million & Love", price: 140, image: "/images/products/million-and-love.jpeg" },
-  { id: "7", slug: "her", name: "H.E.R", price: 175, image: "/images/products/her.jpeg" },
-  { id: "8", slug: "dark-opium", name: "Dark Opium", price: 160, image: "/images/products/dark-opium.jpeg" },
-];
-
-export default function Home() {
+export default async function Home() {
+  const { bestSellers, newArrivals } = await getHomeCollections();
   return (
     <div className={styles.page}>
       <HeroSlider />
