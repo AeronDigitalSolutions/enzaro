@@ -1,0 +1,116 @@
+.page {
+  padding: 3rem 0 4rem;
+  min-height: calc(100vh - 120px);
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.header {
+  margin-bottom: 1.25rem;
+}
+
+.header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.35rem;
+}
+
+.header p {
+  margin: 0;
+  color: #a0a0a0;
+}
+
+.categoryRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.categoryChip {
+  border: 1px solid #2c2c2c;
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #d6d6d6;
+}
+
+.sectionBlock {
+  margin-bottom: 1.5rem;
+}
+
+.sectionBlock h2 {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 0.95rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary);
+  display: grid;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 0.7rem;
+}
+
+.card h3 {
+  margin: 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-gold);
+  font-size: 0.9rem;
+}
+
+.card :global(.btn-outline) {
+  text-align: center;
+  padding: 0.7rem 0.8rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+  font-weight: 600;
+  font-size: 0.83rem;
+  letter-spacing: 1px;
+  transition: opacity 0.2s;
+  border-radius: 0.55rem;
+}
+
+.card :global(.btn-outline):hover {
+  opacity: 0.9;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.empty {
+  color: #a0a0a0;
+}

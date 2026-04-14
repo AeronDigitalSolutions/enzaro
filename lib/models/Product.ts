@@ -35,17 +35,34 @@ const ProductVariantSchema = new Schema(
   { _id: false }
 );
 
+const ProductSizeImagesSchema = new Schema(
+  {
+    ml10: { type: [String], default: [] },
+    ml50: { type: [String], default: [] },
+    ml100: { type: [String], default: [] },
+  },
+  { _id: false }
+);
+
 const ProductSchema = new Schema(
   {
     displayId: { type: String, required: true },
     slug: { type: String, required: true, unique: true, index: true },
     name: { type: String, required: true },
+    inspiredBy: { type: String, default: "" },
+    category: { type: String, enum: ["him", "her", "unisex"], default: "unisex", index: true },
+    productType: { type: String, enum: ["perfume", "accessory"], default: "perfume", index: true },
+    perfumeCategories: { type: [String], default: [] },
+    accessoryCategory: { type: String, default: "" },
+    sku: { type: String, default: "" },
+    stock: { type: Number, default: 0 },
     subtitle: { type: String, required: true },
     price: { type: Number, required: true },
     mrp: { type: Number, required: true },
-    image: { type: String, required: true },
+    image: { type: String, default: "" },
+    sizeImages: { type: ProductSizeImagesSchema, default: () => ({ ml10: [], ml50: [], ml100: [] }) },
     gallery: { type: [String], default: [] },
-    description: { type: String, required: true },
+    description: { type: String, default: "" },
     notes: { type: [ProductNoteSchema], default: [] },
     tags: { type: [String], default: [] },
     reviewScore: { type: String, required: true },
@@ -65,10 +82,18 @@ export type ProductDocument = {
   displayId: string;
   slug: string;
   name: string;
+  inspiredBy?: string;
+  category?: "him" | "her" | "unisex";
+  productType?: "perfume" | "accessory";
+  perfumeCategories?: string[];
+  accessoryCategory?: string;
+  sku?: string;
+  stock?: number;
   subtitle: string;
   price: number;
   mrp: number;
   image: string;
+  sizeImages?: { ml10?: string[]; ml50?: string[]; ml100?: string[] };
   gallery: string[];
   description: string;
   notes: { stage: string; value: string; symbol: string }[];
@@ -82,5 +107,9 @@ export type ProductDocument = {
   isBestSeller: boolean;
   isNewArrival: boolean;
 };
+
+if (process.env.NODE_ENV !== "production") {
+  delete models.Product;
+}
 
 export const ProductModel = (models.Product as Model<ProductDocument>) || model<ProductDocument>("Product", ProductSchema);

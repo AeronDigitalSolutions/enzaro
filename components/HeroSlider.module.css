@@ -3,7 +3,7 @@
   height: 90vh;
   width: 100%;
   overflow: hidden;
-  background-color: var(--color-black);
+  background-color: var(--bg-primary);
 }
 
 .slide {

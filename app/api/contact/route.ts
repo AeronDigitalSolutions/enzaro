@@ -17,7 +17,7 @@ function badRequest(message: string) {
 
 export async function POST(request: Request) {
   try {
-    if (!isMongoConfigured) {
+    if (!isMongoConfigured()) {
       return NextResponse.json(
         { error: "Backend database is not configured yet. Add MONGODB_URI in environment variables." },
         { status: 503 }

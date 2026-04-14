@@ -22,7 +22,7 @@
 }
 
 .tagline {
-  color: var(--text-secondary);
+  color: #a0a0a0;
   font-size: 0.92rem;
   line-height: 1.7;
   max-width: 340px;
@@ -46,7 +46,7 @@
 }
 
 .link:hover {
-  color: var(--color-gold);
+  color: #D4AF37;
   transform: translateX(2px);
 }
 
@@ -65,7 +65,7 @@
 }
 
 .designer {
-  color: #d9aa8f;
+  color: #D4AF37;
 }
 
 @media (max-width: 768px) {

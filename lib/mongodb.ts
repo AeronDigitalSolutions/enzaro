@@ -1,7 +1,21 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
-export const isMongoConfigured = Boolean(MONGODB_URI);
+export function getMongoUri() {
+  const raw = process.env.MONGODB_URI;
+  if (!raw) return "";
+  const trimmed = raw.trim();
+  if (
+    (trimmed.startsWith("\"") && trimmed.endsWith("\"")) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1);
+  }
+  return trimmed;
+}
+
+export function isMongoConfigured() {
+  return Boolean(getMongoUri());
+}
 
 type MongooseCache = {
   conn: typeof mongoose | null;
@@ -16,17 +30,25 @@ declare global {
 const cached: MongooseCache = global.mongooseCache ?? { conn: null, promise: null };
 
 export async function connectToDatabase() {
-  if (!MONGODB_URI) {
+  const mongodbUri = getMongoUri();
+  if (!mongodbUri) {
     throw new Error("Missing MONGODB_URI. Add it to your environment variables.");
   }
 
-  if (cached.conn) return cached.conn;
+  const state = mongoose.connection.readyState;
+  if (cached.conn && state === 1) return cached.conn;
+
+  if (state === 0 || state === 3) {
+    cached.conn = null;
+    cached.promise = null;
+  }
 
   if (!cached.promise) {
     cached.promise = mongoose
-      .connect(MONGODB_URI, {
+      .connect(mongodbUri, {
         dbName: process.env.MONGODB_DB || "enzaro",
         serverSelectionTimeoutMS: 8000,
+        bufferCommands: false,
       })
       .catch((error) => {
         cached.promise = null;

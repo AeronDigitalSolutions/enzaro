@@ -1,18 +1,18 @@
 import { cache } from "react";
 import { connectToDatabase, isMongoConfigured } from "@/lib/mongodb";
-import { defaultProducts } from "@/lib/default-products";
+import { allSeedProducts } from "@/lib/default-products";
 import { ProductModel } from "@/lib/models/Product";
 
 const STANDARD_VARIANTS = [
-  { sizeMl: 10, price: 499, mrp: 899 },
-  { sizeMl: 50, price: 1699, mrp: 2600 },
-  { sizeMl: 100, price: 2999, mrp: 4200 },
+  { sizeMl: 80, price: 1249, mrp: 2500 },
+  { sizeMl: 50, price: 849, mrp: 1700 },
+  { sizeMl: 100, price: 1499, mrp: 3000 },
 ];
 
 function normalizePricing(product: any) {
   const variants = Array.isArray(product.variants) && product.variants.length > 0 ? product.variants : STANDARD_VARIANTS;
   const preferred50 = variants.find((v: any) => Number(v.sizeMl) === 50) || STANDARD_VARIANTS[1];
-  const subtitle = `${preferred50.sizeMl}ML`;
+  const subtitle = `${preferred50.sizeMl === 80 ? '4x20' : preferred50.sizeMl}ML`;
 
   return {
     ...product,
@@ -34,7 +34,7 @@ function toPlainProduct(product: any) {
 }
 
 function getFallbackProducts() {
-  return defaultProducts.map((p) => ({
+  return allSeedProducts.map((p) => ({
     ...normalizePricing(p),
     _id: p.displayId,
     id: p.displayId,
@@ -42,10 +42,10 @@ function getFallbackProducts() {
 }
 
 export const ensureProductsSeeded = cache(async () => {
-  if (!isMongoConfigured) return;
+  if (!isMongoConfigured()) return;
   await connectToDatabase();
   await ProductModel.bulkWrite(
-    defaultProducts.map((product) => ({
+    allSeedProducts.map((product) => ({
       updateOne: {
         filter: { slug: product.slug },
         update: { $set: product },
@@ -56,7 +56,7 @@ export const ensureProductsSeeded = cache(async () => {
 });
 
 export async function getAllProducts() {
-  if (!isMongoConfigured) return getFallbackProducts();
+  if (!isMongoConfigured()) return getFallbackProducts();
   try {
     await ensureProductsSeeded();
     const products = await ProductModel.find({}).sort({ displayId: 1 }).lean();
@@ -67,7 +67,7 @@ export async function getAllProducts() {
 }
 
 export async function getProductBySlug(slug: string) {
-  if (!isMongoConfigured) {
+  if (!isMongoConfigured()) {
     const fallback = getFallbackProducts();
     return fallback.find((p) => p.slug === slug) || fallback[0] || null;
   }
@@ -86,7 +86,13 @@ export async function getProductBySlug(slug: string) {
 
 export async function getHomeCollections() {
   const allProducts = await getAllProducts();
-  const bestSellers = allProducts.filter((p) => p.isBestSeller).slice(0, 4);
-  const newArrivals = allProducts.filter((p) => p.isNewArrival).slice(0, 4);
+  const perfumes = allProducts.filter((p) => (p.productType || "perfume") === "perfume");
+  const bestSellers = perfumes.filter((p) => p.isBestSeller).slice(0, 4);
+  const newArrivals = perfumes.filter((p) => p.isNewArrival).slice(0, 4);
   return { bestSellers, newArrivals };
+}
+
+export async function getAccessories() {
+  const allProducts = await getAllProducts();
+  return allProducts.filter((p) => (p.productType || "perfume") === "accessory");
 }

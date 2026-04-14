@@ -19,10 +19,18 @@ export type ProductSeed = {
   displayId: string;
   slug: string;
   name: string;
+  inspiredBy?: string;
+  category?: "him" | "her" | "unisex";
+  productType?: "perfume" | "accessory";
+  perfumeCategories?: string[];
+  accessoryCategory?: string;
+  sku?: string;
+  stock?: number;
   subtitle: string;
   price: number;
   mrp: number;
   image: string;
+  sizeImages?: { ml10?: string[]; ml50?: string[]; ml100?: string[] };
   gallery: string[];
   description: string;
   notes: ProductNote[];
@@ -190,10 +198,26 @@ export const defaultProducts: ProductSeed[] = catalog.map((item, index) => {
     displayId: String(index + 1),
     slug: item.slug,
     name: item.name,
+    inspiredBy: item.inspiredBy,
+    category: female ? "her" : "him",
+    productType: "perfume",
+    perfumeCategories: [
+      "summer-perfumes",
+      "celebrity-perfumes",
+      ...(index < 8 ? ["top-selling"] : []),
+    ],
+    accessoryCategory: "",
+    sku: `ENZ-${String(index + 1).padStart(3, "0")}`,
+    stock: female ? 80 : 120,
     subtitle: "50ML",
     price: 1699,
     mrp: 2600,
     image,
+    sizeImages: {
+      ml10: [image],
+      ml50: [image],
+      ml100: [image],
+    },
     gallery,
     description: `${item.name} inspired by ${item.inspiredBy}. Crafted for premium performance with smooth projection and long-lasting character.`,
     notes: female ? femaleNotes : maleNotes,
@@ -207,3 +231,13 @@ export const defaultProducts: ProductSeed[] = catalog.map((item, index) => {
     isNewArrival: index >= 16,
   };
 });
+
+const accessorySeeds: ProductSeed[] = [
+  { displayId: "25", slug: "classic-neck-tie", name: "Classic Neck Tie", category: "unisex", productType: "accessory", perfumeCategories: [], accessoryCategory: "neck-tie", sku: "ACC-001", stock: 60, subtitle: "Accessory", price: 899, mrp: 1299, image: "/images/products/product-1.jpeg", sizeImages: { ml10: [], ml50: [], ml100: [] }, gallery: ["/images/products/product-1.jpeg"], description: "Premium neck tie crafted for formal looks.", notes: [], tags: ["Accessories", "Neck Tie"], reviewScore: "4.5", reviewCount: 42, couponText: "Free shipping on accessory orders above ₹999", specs: [{ label: "Material", value: "Poly Silk" }, { label: "Length", value: "Standard" }], accordion: [{ title: "Care", content: "Dry clean recommended.", open: true }], isBestSeller: true, isNewArrival: true },
+  { displayId: "26", slug: "signature-bow", name: "Signature Bow", category: "unisex", productType: "accessory", perfumeCategories: [], accessoryCategory: "bow", sku: "ACC-002", stock: 48, subtitle: "Accessory", price: 699, mrp: 999, image: "/images/products/product-2.jpeg", sizeImages: { ml10: [], ml50: [], ml100: [] }, gallery: ["/images/products/product-2.jpeg"], description: "Elegant bow tie for wedding and party styling.", notes: [], tags: ["Accessories", "Bow"], reviewScore: "4.4", reviewCount: 31, couponText: "Free shipping on accessory orders above ₹999", specs: [{ label: "Material", value: "Satin" }, { label: "Closure", value: "Adjustable" }], accordion: [{ title: "Care", content: "Spot clean only.", open: true }], isBestSeller: false, isNewArrival: true },
+  { displayId: "27", slug: "premium-cufflinks", name: "Premium Cufflinks", category: "unisex", productType: "accessory", perfumeCategories: [], accessoryCategory: "cufflinks", sku: "ACC-003", stock: 35, subtitle: "Accessory", price: 1199, mrp: 1699, image: "/images/products/product-3.jpeg", sizeImages: { ml10: [], ml50: [], ml100: [] }, gallery: ["/images/products/product-3.jpeg"], description: "Polished cufflinks for sharp formal styling.", notes: [], tags: ["Accessories", "Cufflinks"], reviewScore: "4.6", reviewCount: 26, couponText: "Free shipping on accessory orders above ₹999", specs: [{ label: "Material", value: "Alloy Steel" }, { label: "Finish", value: "Gloss" }], accordion: [{ title: "Care", content: "Store in dry pouch.", open: true }], isBestSeller: true, isNewArrival: false },
+  { displayId: "28", slug: "royal-pocket-square", name: "Royal Pocket Square", category: "unisex", productType: "accessory", perfumeCategories: [], accessoryCategory: "pocket-square", sku: "ACC-004", stock: 54, subtitle: "Accessory", price: 499, mrp: 799, image: "/images/products/product-4.jpeg", sizeImages: { ml10: [], ml50: [], ml100: [] }, gallery: ["/images/products/product-4.jpeg"], description: "Pocket square to elevate blazer combinations.", notes: [], tags: ["Accessories", "Pocket Square"], reviewScore: "4.3", reviewCount: 19, couponText: "Free shipping on accessory orders above ₹999", specs: [{ label: "Material", value: "Cotton Blend" }, { label: "Size", value: "One Size" }], accordion: [{ title: "Care", content: "Hand wash with mild detergent.", open: true }], isBestSeller: false, isNewArrival: true },
+  { displayId: "29", slug: "urban-suspender", name: "Urban Suspender", category: "unisex", productType: "accessory", perfumeCategories: [], accessoryCategory: "suspender", sku: "ACC-005", stock: 40, subtitle: "Accessory", price: 999, mrp: 1499, image: "/images/products/product-5.jpeg", sizeImages: { ml10: [], ml50: [], ml100: [] }, gallery: ["/images/products/product-5.jpeg"], description: "Modern suspender for tailored styling.", notes: [], tags: ["Accessories", "Suspender"], reviewScore: "4.5", reviewCount: 22, couponText: "Free shipping on accessory orders above ₹999", specs: [{ label: "Material", value: "Elastic + Metal Clips" }, { label: "Fit", value: "Adjustable" }], accordion: [{ title: "Care", content: "Wipe clean with soft cloth.", open: true }], isBestSeller: false, isNewArrival: true },
+];
+
+export const allSeedProducts: ProductSeed[] = [...defaultProducts, ...accessorySeeds];

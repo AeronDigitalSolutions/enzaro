@@ -17,6 +17,10 @@ export default function Footer() {
           <Link href="/shop" className={styles.link}>All Perfumes</Link>
           <Link href="/shop?category=him" className={styles.link}>For Him</Link>
           <Link href="/shop?category=her" className={styles.link}>For Her</Link>
+          <Link href="/shop?category=summer-perfumes" className={styles.link}>Summer Perfumes</Link>
+          <Link href="/shop?category=top-selling" className={styles.link}>Top Selling</Link>
+          <Link href="/shop?category=celebrity-perfumes" className={styles.link}>Celebrity Perfumes</Link>
+          <Link href="/accessories" className={styles.link}>Accessories</Link>
           <Link href="/cart" className={styles.link}>Cart</Link>
           <Link href="/checkout" className={styles.link}>Checkout</Link>
           <Link href="/about" className={styles.link}>Our Story</Link>

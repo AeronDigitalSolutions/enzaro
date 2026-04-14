@@ -51,7 +51,7 @@ export default function ProductInteractivePanel({
   return (
     <>
       <h1 className={styles.title}>
-        {name} <span>{selectedVariant.sizeMl ? `${selectedVariant.sizeMl}ML` : subtitle}</span>
+        {name} <span>{selectedVariant.sizeMl ? `${selectedVariant.sizeMl === 80 ? '4x20' : selectedVariant.sizeMl}ML` : subtitle}</span>
       </h1>
 
       <div className={styles.priceRow}>
@@ -74,7 +74,7 @@ export default function ProductInteractivePanel({
               setQuantity(1);
             }}
           >
-            <span>{variant.sizeMl}ML</span>
+            <span>{variant.sizeMl === 80 ? '4x20' : variant.sizeMl}ML</span>
             <small>₹{new Intl.NumberFormat("en-IN").format(variant.price)}</small>
           </button>
         ))}

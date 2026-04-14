@@ -35,7 +35,7 @@ export default function CartClient() {
                   <img src={item.image} alt={item.name} className={styles.thumb} />
                   <div className={styles.itemDetails}>
                     <h3>{item.name}</h3>
-                    <p>{item.sizeMl}ML</p>
+                    <p>{item.sizeMl === 80 ? '4x20' : item.sizeMl}ML</p>
                     <div className={styles.itemActions}>
                       <div className={styles.qtyControl}>
                         <button type="button" onClick={() => updateQty(item.id, item.quantity - 1)}>
@@ -50,8 +50,8 @@ export default function CartClient() {
                         Remove
                       </button>
                     </div>
+                    <p className={styles.lineTotal}>₹{lineTotal}</p>
                   </div>
-                  <p className={styles.lineTotal}>₹{lineTotal}</p>
                 </article>
               );
             })}

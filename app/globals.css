@@ -1,13 +1,14 @@
 :root {
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-gold: #D4AF37;
-  --color-gold-hover: #b8972f;
+  --color-gold: #8C7A6B;
+  --color-gold-hover: #706155;
   
-  --bg-primary: var(--color-black);
-  --text-primary: var(--color-white);
-  --text-secondary: #a0a0a0;
-  --border-color: #333333;
+  --bg-primary: #F5F2EB;
+  --bg-secondary: #EBE6DA;
+  --text-primary: #2C241B;
+  --text-secondary: #6E5D4B;
+  --border-color: #D1CAB8;
 }
 
 /* Base resets & typography */
@@ -19,7 +20,6 @@ html, body {
   color: var(--text-primary);
   /* The fonts are defined in layout.tsx via Next.js next/font */
   font-family: var(--font-inter), sans-serif;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 

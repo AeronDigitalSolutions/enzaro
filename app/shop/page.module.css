@@ -1,6 +1,8 @@
 .shopContainer {
   padding: 6rem 0;
   min-height: calc(100vh - 80px); /* rough navbar estimate */
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .header {
@@ -10,21 +12,114 @@
 
 .title {
   font-size: 3.5rem;
-  color: var(--color-gold);
+  color: #D4AF37;
   margin-bottom: 1rem;
 }
 
 .subtitle {
-  color: var(--text-secondary);
+  color: #a0a0a0;
   font-size: 1.1rem;
 }
 
 .filterRow {
   display: flex;
-  justify-content: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+}
+
+.filterBtnsGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.sortSelect {
+  display: none; /* replaced by custom dropdown */
+}
+
+.customSortContainer {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.customSortTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #2c2c2c;
+  background: #0a0a0a;
+  color: #d6d6d6;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  white-space: nowrap;
+}
+
+.customSortTrigger:hover {
+  border-color: #D4AF37;
+}
+
+.customSortTrigger svg {
+  transition: transform 0.2s ease;
+}
+
+.customSortDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: #111111;
+  border: 1px solid #2c2c2c;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  z-index: 100;
+  min-width: 200px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: dropIn 0.15s ease;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.customSortOption {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: #c0c0c0;
+  padding: 0.75rem 1.1rem;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid #1e1e1e;
+  transition: background 0.15s, color 0.15s;
+}
+
+.customSortOption:last-child {
+  border-bottom: none;
+}
+
+.customSortOption:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.customSortActive {
+  color: #D4AF37;
+  background: rgba(212, 175, 55, 0.08);
 }
 
 .filterBtn {

@@ -1,0 +1,345 @@
+.page {
+  background: #080808;
+  min-height: calc(100vh - 120px);
+  padding: 1.25rem 0 3rem;
+}
+
+.shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.topBar {
+  border: 1px solid #222;
+  border-radius: 1rem;
+  background: #0f0f10;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.72rem;
+  color: #b99643;
+}
+
+.topBar h1 {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.subText {
+  margin: 0.25rem 0 0;
+  color: #a9a9a9;
+  font-size: 0.9rem;
+}
+
+.topActions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.ghostBtn {
+  min-height: 40px;
+  border-radius: 0.6rem;
+  border: 1px solid #2b2b2b;
+  background: #121212;
+  color: #dedede;
+  padding: 0 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolsRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.7rem;
+}
+
+.searchInput {
+  min-height: 44px;
+  border-radius: 0.7rem;
+  border: 1px solid #2a2a2a;
+  background: #0f0f0f;
+  color: #f3f3f3;
+  padding: 0 0.8rem;
+}
+
+.bulkBox {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.bulkBox input {
+  max-width: 220px;
+}
+
+.bulkBtn {
+  min-height: 40px;
+  border-radius: 0.6rem;
+  border: 1px solid #3d3120;
+  background: #17120c;
+  color: #d4af37;
+  padding: 0 0.8rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.templateLink {
+  color: #bfa671;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.message {
+  margin: 0;
+  color: #9fc594;
+  font-size: 0.9rem;
+}
+
+.tableWrap {
+  border: 1px solid #222;
+  border-radius: 1rem;
+  background: #0f0f10;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #1d1d1d;
+  font-size: 0.88rem;
+  color: #dadada;
+}
+
+.table tr.selectedRow td {
+  background: rgba(222, 144, 144, 0.08);
+}
+
+.table th {
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.72rem;
+}
+
+.prodCell {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.prodCell img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 0.45rem;
+  border: 1px solid #282828;
+}
+
+.prodCell strong,
+.prodCell span {
+  display: block;
+}
+
+.prodCell strong {
+  font-size: 0.92rem;
+}
+
+.prodCell span {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.badgeRow {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  border-radius: 999px;
+  border: 1px solid #3d3423;
+  padding: 0.15rem 0.45rem;
+  color: #c8b187;
+  font-size: 0.7rem;
+}
+
+.actionRow {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.actionRow button {
+  border: 1px solid #2c2c2c;
+  background: #141414;
+  color: #dfdfdf;
+  border-radius: 0.45rem;
+  min-height: 34px;
+  padding: 0 0.55rem;
+  font-size: 0.75rem;
+}
+
+.deleteBtn {
+  color: #de9090 !important;
+}
+
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  z-index: 400;
+  display: grid;
+  justify-items: end;
+}
+
+.drawer {
+  width: min(100%, 720px);
+  height: 100%;
+  overflow: auto;
+  background: #0f0f10;
+  border-left: 1px solid #252525;
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.drawerHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawerHead h2 {
+  margin: 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.2rem;
+}
+
+.drawerHead button {
+  border: 1px solid #313131;
+  background: #171717;
+  color: #d0d0d0;
+  border-radius: 0.5rem;
+  min-height: 34px;
+  padding: 0 0.7rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.formGrid label,
+.variantGrid label {
+  display: grid;
+  gap: 0.3rem;
+  color: #bfbfbf;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.formGrid input,
+.formGrid select,
+.formGrid textarea,
+.variantGrid input {
+  border: 1px solid #2e2e2e;
+  background: #151515;
+  color: #f2f2f2;
+  border-radius: 0.55rem;
+  min-height: 40px;
+  padding: 0.45rem 0.65rem;
+}
+
+.formGrid textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.variantGrid {
+  border: 1px solid #232323;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.variantGrid h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.94rem;
+}
+
+.toggleRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.toggleRow label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #d6d6d6;
+  font-size: 0.86rem;
+}
+
+.drawerActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+@media (max-width: 920px) {
+  .toolsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .bulkBox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topBar {
+    flex-direction: column;
+  }
+
+  .topActions {
+    width: 100%;
+  }
+
+  .topActions .btn-primary,
+  .topActions .ghostBtn {
+    flex: 1;
+  }
+
+  .formGrid,
+  .variantGrid {
+    grid-template-columns: 1fr;
+  }
+}

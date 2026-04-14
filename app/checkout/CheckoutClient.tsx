@@ -65,7 +65,7 @@ export default function CheckoutClient() {
           {items.map((item) => (
             <div key={item.id} className={styles.summaryItem}>
               <span>
-                {item.name} ({item.sizeMl}ML) x {item.quantity}
+                {item.name} ({item.sizeMl === 80 ? '4x20' : item.sizeMl}ML) x {item.quantity}
               </span>
               <strong>₹{new Intl.NumberFormat("en-IN").format(item.unitPrice * item.quantity)}</strong>
             </div>

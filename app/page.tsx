@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: "Home",
 };
 
+export const dynamic = "force-dynamic";
+
 const offerBanners1 = [
   { id: 1, image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=2000&auto=format&fit=crop", alt: "Complimentary Shipping over $150" },
   { id: 2, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=2000&auto=format&fit=crop", alt: "Discover our Spring Collection" }
